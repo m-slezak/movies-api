@@ -6,3 +6,31 @@
 body{
   background: rgb(37, 37, 37);
 }
+
+.element {
+  margin-block: 2rem;
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.element img {
+  width: 250px;
+  height: 250px;
+
+}
+
+.element-div{
+
+  margin: 0 auto;
+  padding: 20px;
+}
+
+p {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+

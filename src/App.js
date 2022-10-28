@@ -5,20 +5,23 @@ function App() {
 
   const[endPoint, setEndPoint] = useState('');
 
+  const [container, setContainer] = useState([])
+
+  const [finalPoint, setFinalPoint] = useState('')
+
   const handleEndPoint = (e) => {
     setEndPoint(e.target.value)
   }
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault()
-  }
-
-  const [container, setContainer] = useState([])
-
   useEffect(() => {
     fetchMe()
-  }, [endPoint])
+  }, [finalPoint])
 
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault()
+    setFinalPoint(endPoint)
+  }
 
 
   const fetchMe = () => {
@@ -57,18 +60,19 @@ function App() {
         >Search</button>
       </form>
 
-      {container.map((item) => {
+      <div className='element'>
+      {container.map((item, index) => {
         return (
-        <div>
-          <div>
+
+          <div className='element-div' key = {index} >
           <img src={item.i.imageUrl}
-          className="w-[160px] h-[160px]"
-          alt="" srcset=""
+          alt=""
            />
           <p className='text-white'> {item.l} </p>
           </div>
-        </div>
+
       )})}
+      </div>
 
     </div>
   );
